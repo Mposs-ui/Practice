@@ -1,0 +1,23 @@
+Instructions:
+Write a function that will return the count of distinct case-insensitive alphabetic characters and numeric digits that occur more than once in the input string. The input string can be assumed to contain only alphabets (both uppercase and lowercase) and numeric digits.
+
+Solution:
+public class CountingDuplicates {
+  public static int duplicateCount(String text) {
+    text.toLowerCase();
+    
+        int cnt = 0;
+    while (text.length() > 1) {
+        char firstLetter = text.charAt(0);
+        if (text.lastIndexOf(firstLetter) > 0) {
+            cnt++;
+            text = text.replaceAll(("" + firstLetter), "");
+        } else {
+            text = text.substring(1, text.length());
+        }
+    }
+
+    return cnt;
+  
+  }
+}
